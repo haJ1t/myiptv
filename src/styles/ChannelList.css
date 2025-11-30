@@ -1,0 +1,266 @@
+.channel-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #0f0f0f;
+  border-right: 1px solid #222;
+}
+
+/* Header */
+.channel-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #222;
+}
+
+.channel-list-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.channel-count {
+  font-size: 0.9rem;
+  color: #666;
+  background: #1a1a1a;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+}
+
+/* Search box */
+.search-box {
+  position: relative;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #222;
+}
+
+.search-box svg {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  pointer-events: none;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.search-box input:focus {
+  border-color: #ff0000;
+  background: #222;
+}
+
+.clear-search {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.clear-search:hover {
+  color: #ff0000;
+}
+
+/* Group filter */
+.group-filter {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #222;
+}
+
+.group-filter select {
+  width: 100%;
+  padding: 0.75rem;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.group-filter select:hover {
+  border-color: #444;
+}
+
+.group-filter select:focus {
+  border-color: #ff0000;
+}
+
+/* Channel groups */
+.channel-groups {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem 0;
+}
+
+.channel-group {
+  margin-bottom: 0.5rem;
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  user-select: none;
+}
+
+.group-header:hover {
+  background: #1a1a1a;
+}
+
+.group-name {
+  flex: 1;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.group-count {
+  font-size: 0.85rem;
+  color: #666;
+  background: #1a1a1a;
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+}
+
+.expand-icon {
+  color: #666;
+  transition: transform 0.2s;
+}
+
+.expand-icon.expanded {
+  transform: rotate(180deg);
+}
+
+/* Group channels */
+.group-channels {
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Channel item */
+.channel-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem 0.75rem 2.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.channel-item:hover {
+  background: #1a1a1a;
+  border-left-color: #ff0000;
+}
+
+.channel-item.active {
+  background: #1a1a1a;
+  border-left-color: #ff0000;
+}
+
+.channel-item.active .channel-item-name {
+  color: #ff0000;
+  font-weight: 600;
+}
+
+.channel-item-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #222;
+  padding: 0.25rem;
+}
+
+.channel-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.channel-item-name {
+  font-size: 0.95rem;
+  color: #fff;
+  transition: color 0.2s;
+}
+
+.channel-item-quality {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  width: fit-content;
+  text-transform: uppercase;
+}
+
+/* No results */
+.no-results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  color: #666;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .channel-list-header {
+    padding: 1rem;
+  }
+
+  .search-box,
+  .group-filter {
+    padding: 0.75rem 1rem;
+  }
+
+  .channel-item {
+    padding: 0.75rem 1rem 0.75rem 2rem;
+  }
+
+  .channel-item-logo {
+    width: 32px;
+    height: 32px;
+  }
+}
